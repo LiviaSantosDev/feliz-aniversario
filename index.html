@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Aniversário</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 20px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 1s, transform 1s;
+      }
+      .container.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      h1 {
+        color: #ff6347;
+      }
+      p {
+        color: #333;
+        line-height: 1.5;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      .ps {
+        margin-top: 10px;
+        font-size: 0.8em;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="messageContainer">
+      <h1>🎉 Feliz Aniversário! 🎉</h1>
+      <p>Hoje é um dia muito especial! 🎂✨</p>
+      <p>
+        Não é todo dia que se comemora mais um ano de chatice 😂🤣. Brincadeiras
+        à parte, só para não perder meu senso de humor maravilhoso.
+      </p>
+      <p>
+        Quero te agradecer por tudo, especialmente por ter toda essa paciência
+        que você tem comigo. Sei que não sou uma pessoa fácil de lidar, mas
+        estou tentando melhorar. Talvez seja muita exposição, mas vou falar
+        mesmo assim.
+      </p>
+      <p>
+        Depois que o Saulo foi embora, eu achava que não ia aguentar muito tempo
+        na operação, mas com o apoio que você me deu, foi mais fácil continuar
+        lá.
+      </p>
+      <p>
+        Que esta nova fase seja repleta de momentos inesquecíveis, conquistas
+        surpreendentes e muito amor. Desejo a você muita saúde, alegria e que
+        todos os seus sonhos se tornem realidade. 🥳🎁
+      </p>
+      <p>
+        Aproveite cada segundo deste dia maravilhoso e saiba que você é muito
+        querida, por mim e, acho, por todos da nossa equipe ❤.
+      </p>
+      <p>Parabéns! 🎈🎊</p>
+      <div class="footer">
+        <p>Com carinho,</p>
+        <p>Você sabe quem é</p>
+      </div>
+      <div class="ps">
+        <p>
+          P.S.: Se você contar para alguém sobre esta mensagem, eu digo que foi
+          um vírus no meu PC. 😜
+        </p>
+      </div>
+    </div>
+
+    <!-- Inclua a biblioteca canvas-confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+      window.addEventListener("load", function () {
+        const container = document.getElementById("messageContainer");
+        setTimeout(() => {
+          container.classList.add("visible");
+
+          // Dispara a animação de confete contínua
+          const duration = 15 * 1000; // 15 segundos
+          const end = Date.now() + duration;
+
+          (function frame() {
+            confetti({
+              particleCount: 3,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 },
+            });
+            confetti({
+              particleCount: 3,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 },
+            });
+
+            if (Date.now() < end) {
+              requestAnimationFrame(frame);
+            }
+          })();
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
